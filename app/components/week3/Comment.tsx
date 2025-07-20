@@ -16,7 +16,7 @@ const commentsData = [
         views: '85k views',
         title: 'Exploring Thai Temples',
         description: 'A spiritual and architectural journey through some of Thailand’s most iconic temples.',
-        image: require('../../assets/week3/profile-2.jpg'),
+        image: require('../../assets/week3/profile-3.jpg'),
     },
     {
         name: 'John Smith',
@@ -24,7 +24,7 @@ const commentsData = [
         views: '200k views',
         title: 'Mountain Hiking in Chiang Mai',
         description: 'Join me as I hike up the misty trails of Doi Suthep to discover nature and culture.',
-        image: require('../../assets/week3/profile-2.jpg'),
+        image: require('../../assets/week3/profile-4.jpg'),
     },
 ];
 
