@@ -1,0 +1,17 @@
+export enum FlexboxRoutes {
+  Ex01 = "/flexbox/ex01",
+  Ex02 = "/flexbox/ex02",
+  Ex03 = "/flexbox/ex03",
+  Ex04 = "/flexbox/ex04",
+  Ex05 = "/flexbox/ex05",
+  Ex06 = "/flexbox/ex06",
+  Ex07 = "/flexbox/ex07",
+  Ex08 = "/flexbox/ex08",
+  Ex09 = "/flexbox/ex09",
+  Ex10 = "/flexbox/ex10",
+  Ex11 = "/flexbox/ex11",
+  Ex12 = "/flexbox/ex12",
+  Travel = "/travel",
+  Resort = "/resort",
+  View = "/review",
+}
