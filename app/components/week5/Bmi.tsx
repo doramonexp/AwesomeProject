@@ -1,3 +1,4 @@
+import { LinearGradient } from 'expo-linear-gradient';
 import React, { useState } from "react";
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
@@ -67,41 +68,21 @@ export default function Bmi() {
         </View>
       </View>
 
-      {/* Button */}
-      <TouchableOpacity onPress={onPressButton}>
-    <View style={{ padding: 20, backgroundColor: "blue", borderRadius: 40 }}>
-        <Text style={{ fontSize: 30, textAlign: "center", color: 'white' }}>
-            Calculate
-        </Text>
-    </View>
-</TouchableOpacity>
-
-
-
+      {/* Button ใส่สีปุ่มแบบ linearGradient */}      
+      <TouchableOpacity onPress={onPressButton} style={styles.buttonContainer}>
+      <LinearGradient
+        colors={["#4c669f", "#3b5998", "#192f6a"]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        style={styles.gradient}
+      >
+        <Text style={styles.buttonText}>Calculate</Text>
+      </LinearGradient>
+    </TouchableOpacity>
 
     </ScrollView>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -130,5 +111,19 @@ const styles = StyleSheet.create({
     height: 100,
     justifyContent: "center",
     alignItems: "center",
+  },
+  buttonContainer: {
+    borderRadius: 20,
+    overflow: "hidden", // เพื่อให้ gradient ถูกตัดตามขอบ
+  },
+  gradient: {
+    padding: 20,
+    borderRadius: 20,
+  },
+  buttonText: {
+    fontSize: 30,
+    textAlign: "center",
+    color: "white",
+    fontWeight: "bold",
   },
 });
