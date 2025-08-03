@@ -29,7 +29,8 @@ const buttons: { label: string; href: FlexboxRoutes; icon: IconName }[] = [
   { label: "Travel", href: FlexboxRoutes.Travel, icon: "camera" },
   { label: "Resort", href: FlexboxRoutes.Resort, icon: "home" },
   { label: "Review", href: FlexboxRoutes.View, icon: "book" },
-  { label: "Health", href: FlexboxRoutes.Health, icon: "book" },
+  { label: "Health", href: FlexboxRoutes.Health, icon: "accessible" },
+  { label: "Tour", href: FlexboxRoutes.Tour, icon: "check" },
 
 ];
 

@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   inputCard: {
-    backgroundColor: "white",
+    backgroundColor: "#88b8d6ff",
     padding: 20,
     marginVertical: 20,
     marginHorizontal: 10,
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   resultBox: {
-    backgroundColor: "white",
+    backgroundColor: "#88b8d6ff",
     flex: 1,
     borderRadius: 10,
     margin: 10,
