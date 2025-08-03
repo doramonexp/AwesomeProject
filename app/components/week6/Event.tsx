@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Dimensions, FlatList, Image, Text, View } from "react-native";
+import { Dimensions, FlatList, Image, StyleSheet, Text, View } from "react-native";
 
 export default function Event(props:any) {
 
@@ -30,7 +30,7 @@ export default function Event(props:any) {
                     ({ item, index }:any) => {                      
                         return (
                             <View style={{ marginRight: 10 }} >
-                                <Image style={{ width: Dimensions.get("screen").width / 1.6, height: 150, borderTopLeftRadius : 10, borderTopRightRadius : 10 }} source={{ uri: item.uri }} />
+                                <Image style={ styles.picture } source={{ uri: item.uri }} />
                                 <View style={{ width: Dimensions.get("screen").width / 1.6,flexDirection : "row", backgroundColor : 'white', borderWidth : 1 , borderColor : "grey" , borderBottomLeftRadius : 10 , borderBottomRightRadius : 10}}>
                                     <View style={{ padding : 10  }} >
                                         <Text style={{ fontSize: 15, color: 'red', textAlign : "center" }}>{item.month}</Text>
@@ -52,3 +52,15 @@ export default function Event(props:any) {
         </View>
     );
 }
+
+
+
+const styles = StyleSheet.create({
+  
+    picture: {
+        width: Dimensions.get("screen").width / 1.6, 
+        height: 150, 
+        borderTopLeftRadius : 10, 
+        borderTopRightRadius : 10 
+    },     
+});
