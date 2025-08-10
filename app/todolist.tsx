@@ -8,9 +8,9 @@ import TodoItem from "./components/week9/Todoitem";
 export default function TodoList() {
   const navigation = useNavigation();
   const [todos, setTodos] = useState<any>([
-    { id: '1', completed: false, title: "exercise @ 7.00" },
-    { id: '2', completed: false, title: "meeting @ 9.00" },
-    { id: '3', completed: false, title: "go to cinema @ 19.00" },
+    // { id: '1', completed: false, title: "exercise @ 7.00" },
+    // { id: '2', completed: false, title: "meeting @ 9.00" },
+    // { id: '3', completed: false, title: "go to cinema @ 19.00" },
   ]);
 
   console.log("TODOS:", todos);
@@ -18,7 +18,7 @@ export default function TodoList() {
   const onLoad = async () => {
     let data = await getData("todos");
     if (data) {
-      setTodos(data); // ✅ โหลดข้อมูลจาก storage
+      setTodos(data); // โหลดข้อมูลจาก storage
     }
   };
 
@@ -34,7 +34,7 @@ export default function TodoList() {
     };
     let t = [...todos, new_data];
     setTodos(t);
-    storeData("todos", t); // ✅ บันทึกข้อมูลใหม่
+    storeData("todos", t); // บันทึกข้อมูลใหม่
   };
 
   const onUpdate = (new_title: string, id: string) => {
@@ -42,7 +42,7 @@ export default function TodoList() {
     let index = t.findIndex((item) => item.id == id);
     t[index].title = new_title;
     setTodos(t);
-    storeData("todos", t); // ✅ บันทึกหลังแก้ไข
+    storeData("todos", t); // บันทึกหลังแก้ไข
   };
 
   const onCheck = (id: string) => {
@@ -50,7 +50,7 @@ export default function TodoList() {
     let index = t.findIndex((item) => item.id == id);
     t[index].completed = !t[index].completed;
     setTodos(t);
-    storeData("todos", t); // ✅ บันทึกสถานะ check
+    storeData("todos", t); // บันทึกสถานะ check
   };
 
   const onDelete = (id: string) => {
@@ -59,7 +59,7 @@ export default function TodoList() {
     let [removed_t] = t.splice(index, 1);
     console.log(removed_t);
     setTodos(t);
-    storeData("todos", t); // ✅ บันทึกหลังลบ
+    storeData("todos", t); // บันทึกหลังลบ
   };
 
   return (

@@ -31,9 +31,9 @@ const buttons: { label: string; href: FlexboxRoutes; icon: IconName }[] = [
   { label: "Review", href: FlexboxRoutes.View, icon: "book" },
   { label: "Health", href: FlexboxRoutes.Health, icon: "accessible" },
   { label: "Tour", href: FlexboxRoutes.Tour, icon: "check" },
-  { label: "Chart", href: FlexboxRoutes.Chart, icon: "menu" },
-  { label: "Y-heal", href: FlexboxRoutes.YourHelth, icon: "menu" },
-  { label: "To-Do", href: FlexboxRoutes.TodoItim, icon: "menu" },
+  { label: "Chart", href: FlexboxRoutes.Chart, icon: "insert-chart" },
+  { label: "Y-heal", href: FlexboxRoutes.YourHelth, icon: "favorite" },
+  { label: "To-Do", href: FlexboxRoutes.TodoItim, icon: "person" },
 
 ];
 

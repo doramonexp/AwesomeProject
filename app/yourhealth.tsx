@@ -8,7 +8,6 @@ export default function YourHealth() {
     <ScrollView style={styles.container}>
       <Height />
       <WeightChart />
-
     </ScrollView>
   );
 }

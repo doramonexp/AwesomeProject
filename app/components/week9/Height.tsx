@@ -1,14 +1,20 @@
 import { getData, storeData } from "@/utils/storage";
 import React, { useEffect, useState } from "react";
-import { Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Alert,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
+} from "react-native";
 
 export default function Height() {
   const [height, setHeight] = useState<string>("0");
 
   const load = async () => {
-    console.log("load");
-    let h = await getData("height") ;
-    h = h || "0"; // Default to "0" if no height is stored
+    let h = await getData("height");
+    h = h || "0";
     setHeight(h);
   };
 
@@ -17,25 +23,29 @@ export default function Height() {
   }, []);
 
   const save = async () => {
-    console.log("save");
     await storeData("height", height);
-    Alert.alert("Height saved: " + height);
+    Alert.alert("✅ Height saved", `Your height is ${height} cm`);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Enter Your Details</Text>
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>Height (cm):</Text>
+      <Text style={styles.title}>🏃‍♂️ ป้อนข้อมูลส่วนสูง</Text>
+
+      <View style={styles.card}>
+        <Text style={styles.label}>Height (cm)</Text>
         <TextInput
           style={styles.input}
           keyboardType="numeric"
           onChangeText={(text) => setHeight(text)}
-          value={height.toString()}
+          value={height}
+          placeholder="e.g. 170"
+          placeholderTextColor="#aaa"
         />
       </View>
 
-      <Button title="Save Height" onPress={save} />
+      <TouchableOpacity style={styles.button} onPress={save}>
+        <Text style={styles.buttonText}>Save Height</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -43,33 +53,49 @@ export default function Height() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: "#fff",
+    padding: 24,
+    backgroundColor: "#f2f4f7",
+    justifyContent: "center",
   },
   title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
+    fontSize: 28,
+    fontWeight: "600",
+    textAlign: "center",
+    marginBottom: 30,
+    color: "#333",
   },
-  inputContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10,
+  card: {
+    backgroundColor: "#fff",
+    padding: 20,
+    borderRadius: 12,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 4,
+    marginBottom: 30,
   },
   label: {
-    marginRight: 10,
+    fontSize: 16,
+    marginBottom: 8,
+    color: "#555",
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
-    padding: 8,
-    flex: 1,
+    borderColor: "#ddd",
+    borderRadius: 8,
+    padding: 12,
+    fontSize: 16,
+    color: "#000",
   },
-  displayContainer: {
-    marginTop: 20,
+  button: {
+    backgroundColor: "#4CAF50",
+    paddingVertical: 14,
+    borderRadius: 10,
+    alignItems: "center",
   },
-  displayText: {
+  buttonText: {
+    color: "#fff",
     fontSize: 18,
-    marginBottom: 5,
+    fontWeight: "500",
   },
 });

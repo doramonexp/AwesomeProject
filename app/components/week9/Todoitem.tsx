@@ -1,26 +1,66 @@
-import React from 'react';
-import { TextInput, TouchableOpacity, View } from 'react-native';
-// import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import React from 'react';
+import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 
-export default function TodoItem(props:any) {    
-    return (     
-        <View
-            style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                paddingHorizontal : 25,
-                paddingVertical : 10,
-            }}>
-            <TouchableOpacity style={{  flex : 2 }} onPress={()=>props.onCheck(props.item.id) }>
-                <FontAwesome name={ props.item.completed ? "check-square" : "square-o" } size={23} />                               
+export default function TodoItem(props: any) {
+    return (
+        <View style={styles.container}>
+            <TouchableOpacity style={styles.checkBox} onPress={() => props.onCheck(props.item.id)}>
+                <FontAwesome
+                    name={props.item.completed ? 'check-square' : 'square-o'}
+                    size={24}
+                    color={props.item.completed ? '#4CAF50' : '#999'}
+                />
             </TouchableOpacity>
-            <View style={{ flex: 12 }}>                                  
-                <TextInput value={props.item.title} placeholder="What's in your mind? " onChangeText={(new_title) => props.onUpdate(new_title, props.item.id) }  />                                  
+
+            <View style={styles.inputContainer}>
+                <TextInput
+                    value={props.item.title}
+                    placeholder="What's on your mind?"
+                    onChangeText={(new_title) => props.onUpdate(new_title, props.item.id)}
+                    style={styles.textInput}
+                    placeholderTextColor="#aaa"
+                />
             </View>
-            <TouchableOpacity  style={{  flex : 1 }} onPress={()=>props.onDelete(props.item.id) } >
-                <FontAwesome name="trash" size={23} />
+
+            <TouchableOpacity style={styles.deleteButton} onPress={() => props.onDelete(props.item.id)}>
+                <FontAwesome name="trash" size={22} color="#E53935" />
             </TouchableOpacity>
-        </View>             
+        </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        marginHorizontal: 20,
+        marginVertical: 8,
+        paddingHorizontal: 15,
+        paddingVertical: 12,
+        shadowColor: '#000',
+        shadowOpacity: 0.1,
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 4,
+        elevation: 3,
+    },
+    checkBox: {
+        flex: 1,
+        alignItems: 'center',
+    },
+    inputContainer: {
+        flex: 10,
+        paddingHorizontal: 10,
+    },
+    textInput: {
+        fontSize: 16,
+        color: '#333',
+        paddingVertical: 4,
+    },
+    deleteButton: {
+        flex: 1,
+        alignItems: 'center',
+    },
+});
