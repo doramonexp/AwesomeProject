@@ -16,4 +16,7 @@ export enum FlexboxRoutes {
   View = "/review",
   Health = "/health",
   Tour="/home",
+  Chart="/chart",
+  YourHelth="/yourhealth",
+  TodoItim="/todolist",
 }
